@@ -27,6 +27,14 @@ public class Hangman extends AppCompatActivity {
                 "ultra", "warning", "extreme", "yodel", "zombie"
         };
     }
+    public static void checkIfCorrect (char letter) {
+        for (int i = 0; i < word.length; i++) {
+            if(word.charAt(i) == letter) {
+                score++;
+            }
+
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
