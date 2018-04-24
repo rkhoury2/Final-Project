@@ -16,7 +16,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class Hangman extends AppCompatActivity {
-
+    public static void main(String[] args) {
+        String[] words = {"awkward", "bango", "dwarves", "fjord", "hyphen", "ivory",
+                "jiffy", "jukebox", "caramel", "mystify", "oxygen", "rogue", "sphinx", "zigzag",
+                "terrible", "leopard", "elevator", "computer", "calendar", "button", "captain",
+                "goldfish", "glasses", "pencil", "budget", "bedroom", "chromatic", "latter",
+        };
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
