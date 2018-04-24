@@ -6,10 +6,14 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class Hangman extends AppCompatActivity {
 
@@ -24,7 +28,20 @@ public class Hangman extends AppCompatActivity {
                 Log.d("restart button", "The restart button works!");
             }
         });
-    }
+        EditText userInput = findViewById(R.id.userinput);
+        userInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                boolean handled = false;
+                if (actionId == EditorInfo.IME_ACTION_SEND) {
+                    Log.d("userinput", "User input string works!");
+                   // sendMessage();
+                    handled = true;
+                }
+                return handled;
+            }
+            })
+    ;}
 
 
     @Override
