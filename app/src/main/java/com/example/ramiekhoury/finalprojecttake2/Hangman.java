@@ -16,8 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class Hangman extends AppCompatActivity {
-    public static void main(String[] args) {
-        String[] words = {"awkward", "bango", "dwarves", "fjord", "hyphen", "ivory",
+    private static String[] words = {"awkward", "bango", "dwarves", "fjord", "hyphen", "ivory",
                 "jiffy", "jukebox", "caramel", "mystify", "oxygen", "rogue", "sphinx", "zigzag",
                 "terrible", "leopard", "elevator", "computer", "calendar", "button", "captain",
                 "goldfish", "glasses", "pencil", "budget", "bedroom", "chromatic", "latter",
@@ -26,13 +25,20 @@ public class Hangman extends AppCompatActivity {
                 "market", "number", "ominous", "purple", "quilted", "resonate", "simulate", "talent",
                 "ultra", "warning", "extreme", "yodel", "zombie"
         };
-    }
-    public static void checkIfCorrect (char letter) {
-        for (int i = 0; i < word.length; i++) {
+        private static String word = words[(int) (Math.random() * words.length)];
+        char[] enteredChar = new char[word.length()];
+        static int failedCount = 0;
+        static int score = 0;
+        boolean wordGuessed = false;
+
+    public static void checkIfCorrect(char letter) {
+        for (int i = 0; i < word.length(); i++) {
             if(word.charAt(i) == letter) {
                 score++;
             }
-
+            else {
+                failedCount++;
+            }
         }
     }
     @Override
