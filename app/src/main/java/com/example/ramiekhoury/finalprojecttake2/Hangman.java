@@ -21,6 +21,10 @@ public class Hangman extends AppCompatActivity {
                 "jiffy", "jukebox", "caramel", "mystify", "oxygen", "rogue", "sphinx", "zigzag",
                 "terrible", "leopard", "elevator", "computer", "calendar", "button", "captain",
                 "goldfish", "glasses", "pencil", "budget", "bedroom", "chromatic", "latter",
+                "section", "liberty", "kingdom", "acrobat", "builder", "carrot", "diamond", "enough",
+                "favorite", "grapple", "history", "imagine", "jigsaw", "knotted", "lighting",
+                "market", "number", "ominous", "purple", "quilted", "resonate", "simulate", "talent",
+                "ultra", "warning", "extreme", "yodel", "zombie"
         };
     }
     @Override
