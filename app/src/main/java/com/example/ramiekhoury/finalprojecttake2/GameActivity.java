@@ -1,5 +1,8 @@
 package com.example.ramiekhoury.finalprojecttake2;
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,7 +22,6 @@ public class GameActivity extends Activity {
     private LinearLayout layout;
     private String currentWord;
     private TextView[] textShown;
-    private int wordCharacters;
     private int numberCharacters;
     private int numberCorrect;
     private ImageView[] hangmanParts;
@@ -31,7 +33,16 @@ public class GameActivity extends Activity {
     protected void onCreate(Bundle instanceState) {
         super.onCreate(instanceState);
         currentWord = "";
+        layout = (LinearLayout)findViewById(R.id.word);
+        hangmanParts = new ImageView[numberParts];
+        hangmanParts[0] = (ImageView) findViewById(R.id.head);
+        hangmanParts[1] = (ImageView) findViewById(R.id.body);
+        hangmanParts[2] = (ImageView) findViewById(R.id.firstArm);
+        hangmanParts[3] = (ImageView) findViewById(R.id.secondArm);
+        hangmanParts[4] = (ImageView) findViewById(R.id.firstLeg);
+        hangmanParts[5] = (ImageView) findViewById(R.id.secondLeg);
     }
+
     private void game() {
         String word = words[(int) (Math.random() * words.length)];
         while (word.equals(currentWord)) {
@@ -50,6 +61,60 @@ public class GameActivity extends Activity {
         numberCorrect = 0;
         for (int j = 0; j < numberParts; j++) {
             hangmanParts[j].setVisibility(View.INVISIBLE);
+        }
+    }
+
+    public void guess(View input) {
+        String character = ((TextView) input).getText().toString();
+        char letterAt = character.charAt(0);
+        boolean correctlyGuessed = false;
+        for (int i = 0; i < currentWord.length(); i++) {
+            if (letterAt == currentWord.charAt(i)) {
+                correctlyGuessed = true;
+                numberCorrect++;
+                textShown[i].setVisibility(View.VISIBLE);
+            }
+        }
+        if (correctlyGuessed) {
+            if (numberCorrect == numberCharacters) {
+                AlertDialog.Builder win = new AlertDialog.Builder(this);
+                win.setTitle("Congratulations!!!");
+                win.setMessage("You won!\n\nThe word was:\n\n" + currentWord);
+                win.setPositiveButton("Play Again",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                GameActivity.this.game();
+                            }
+                        });
+                win.setNegativeButton("Exit",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                GameActivity.this.finish();
+                            }
+                        });
+                win.show();
+            }
+            else if (numberParts > numberCorrect) {
+                hangmanParts[currentParts].setVisibility(View.VISIBLE);
+                currentParts++;
+            } else {
+                AlertDialog.Builder lost = new AlertDialog.Builder(this);
+                lost.setTitle("Too bad!");
+                lost.setMessage("You lose!\n\nThe word was:\n\n"+currentWord);
+                lost.setPositiveButton("Play Again",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                GameActivity.this.game();
+                            }
+                        });
+                lost.setNegativeButton("Exit",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                GameActivity.this.finish();
+                            }
+                        });
+                lost.show();
+            }
         }
     }
 }
