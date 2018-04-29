@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -9,12 +10,138 @@
     tools:showIn="@layout/activity_hangman">
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:text="Hangman App"
+        android:layout_height="wrap_content"
+        android:text="@string/hangman_app"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFFFF"
+        android:gravity="center"
+        android:paddingTop="15dp"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/head"
+        android:paddingLeft="100dp"
+        android:paddingStart="100dp"
+        android:paddingTop="20dp"
+        android:src="@drawable/head"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/body"
+        android:paddingLeft="112dp"
+        android:paddingStart="112dp"
+        android:paddingTop="57dp"
+        android:src="@drawable/body"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/firstArm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/first_arm"
+        android:paddingLeft="84dp"
+        android:paddingStart="84dp"
+        android:paddingTop="55dp"
+        android:src="@drawable/firstarm"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/secondArm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/second_arm"
+        android:paddingLeft="118dp"
+        android:paddingStart="118dp"
+        android:paddingTop="53dp"
+        android:src="@drawable/secondarm"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/firstLeg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/first_leg"
+        android:paddingLeft="95dp"
+        android:paddingStart="95dp"
+        android:paddingTop="97dp"
+        android:src="@drawable/firstleg"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/secondLeg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/second_leg"
+        android:paddingLeft="117dp"
+        android:paddingStart="117dp"
+        android:paddingTop="97dp"
+        android:src="@drawable/secondleg"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
+
+<LinearLayout
+android:id="@+id/word"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:layout_marginBottom="5dp"
+android:background="#FFFFFFFF"
+android:gravity="center"
+android:orientation="horizontal"
+android:padding="10dp" >
+</LinearLayout>
+
+<GridView
+android:id="@+id/letters"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:layout_gravity="center"
+android:layout_marginBottom="5dp"
+android:background="#990099"
+
+android:horizontalSpacing="5dp"
+android:numColumns="6"
+android:padding="5dp"
+android:stretchMode="columnWidth"
+android:verticalSpacing="5dp" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

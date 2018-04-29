@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Final Project take 2</string>
     <string name="action_settings">Settings</string>
+    <string name="first_leg">first leg</string>
+    <string name="hangman_app">Hangman App</string>
+    <string name="body">body</string>
+    <string name="first_arm">first arm</string>
+    <string name="second_arm">second arm</string>
+    <string name="second_leg">second leg</string>
+    <string name="head">head</string>
 </resources>
