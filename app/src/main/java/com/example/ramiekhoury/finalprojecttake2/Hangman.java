@@ -16,16 +16,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class Hangman extends AppCompatActivity {
-    private static String[] words = {"awkward", "bango", "dwarves", "fjord", "hyphen", "ivory",
-                "jiffy", "jukebox", "caramel", "mystify", "oxygen", "rogue", "sphinx", "zigzag",
-                "terrible", "leopard", "elevator", "computer", "calendar", "button", "captain",
-                "goldfish", "glasses", "pencil", "budget", "bedroom", "chromatic", "latter",
-                "section", "liberty", "kingdom", "acrobat", "builder", "carrot", "diamond", "enough",
-                "favorite", "grapple", "history", "imagine", "jigsaw", "knotted", "lighting",
-                "market", "number", "ominous", "purple", "quilted", "resonate", "simulate", "talent",
-                "ultra", "warning", "extreme", "yodel", "zombie"
-        };
-        private static String word = words[(int) (Math.random() * words.length)];
         char[] enteredChar = new char[word.length()];
         static int failedCount = 0;
         static int score = 0;
