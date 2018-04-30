@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ public class GameActivity extends Activity {
     private LinearLayout layout;
     private String currentWord;
     private TextView[] textShown;
+    private GridView ltrs;
     private int numberCharacters;
     private int numberCorrect;
     private ImageView[] hangmanParts;
@@ -33,7 +35,10 @@ public class GameActivity extends Activity {
     protected void onCreate(Bundle instanceState) {
         super.onCreate(instanceState);
         currentWord = "";
+        setContentView(R.layout.activity_hangman);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
         layout = (LinearLayout)findViewById(R.id.word);
+        ltrs = (GridView)findViewById(R.id.word);
         hangmanParts = new ImageView[numberParts];
         hangmanParts[0] = (ImageView) findViewById(R.id.head);
         hangmanParts[1] = (ImageView) findViewById(R.id.body);
@@ -41,6 +46,7 @@ public class GameActivity extends Activity {
         hangmanParts[3] = (ImageView) findViewById(R.id.secondArm);
         hangmanParts[4] = (ImageView) findViewById(R.id.firstLeg);
         hangmanParts[5] = (ImageView) findViewById(R.id.secondLeg);
+        game();
     }
 
     private void game() {
