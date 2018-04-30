@@ -37,8 +37,8 @@ public class GameActivity extends Activity {
         currentWord = "";
         setContentView(R.layout.activity_hangman);
         getActionBar().setDisplayHomeAsUpEnabled(true);
-        layout = (LinearLayout)findViewById(R.id.word);
-        ltrs = (GridView)findViewById(R.id.word);
+        //layout = (LinearLayout)findViewById(R.id.word);
+        //ltrs = (GridView)findViewById(R.id.word);
         hangmanParts = new ImageView[numberParts];
         hangmanParts[0] = (ImageView) findViewById(R.id.head);
         hangmanParts[1] = (ImageView) findViewById(R.id.body);
