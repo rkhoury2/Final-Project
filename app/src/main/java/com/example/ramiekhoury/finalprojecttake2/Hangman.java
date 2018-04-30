@@ -18,12 +18,15 @@ import android.widget.TextView;
 
 public class Hangman extends AppCompatActivity implements View.OnClickListener {
 
+    private EditText characterInput;
+    private TextView hangmanDashes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hangman);
-        final Button play = findViewById(R.id.playButton);
-        play.setOnClickListener(this);
+        final Button enterButton = findViewById(R.id.enterButton);
+        enterButton.setOnClickListener(this);
         final Button restartButton = findViewById(R.id.button_id);
         restartButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -31,12 +34,13 @@ public class Hangman extends AppCompatActivity implements View.OnClickListener {
                 Log.d("restart button", "The restart button works!");
             }
         });
-        EditText userInput = findViewById(R.id.userinput);
+      /**  final EditText userInput = findViewById(R.id.userinput);
         userInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 boolean handled = false;
                 if (actionId == EditorInfo.IME_ACTION_SEND) {
+                    getText(actionId).toString();
                     Log.d("userinput", "User input string works!");
                    // sendMessage();
                     handled = true;
@@ -44,8 +48,10 @@ public class Hangman extends AppCompatActivity implements View.OnClickListener {
                 return handled;
             }
             })
+       **/
+        characterInput = (EditText)findViewById(R.id.userinput);
+        hangmanDashes = (TextView)findViewById(R.id.ltrs);
     ;}
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -70,9 +76,9 @@ public class Hangman extends AppCompatActivity implements View.OnClickListener {
     }
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.playButton) {
-            Intent play = new Intent(this, GameActivity.class);
-            this.startActivity(play);
+        if (view.getId() == R.id.enterButton) {
+            View guess = characterInput;
+            GameActivity.guessed(guess);
         }
     }
 }

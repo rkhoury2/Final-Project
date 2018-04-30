@@ -36,7 +36,6 @@ public class GameActivity extends Activity {
         super.onCreate(instanceState);
         currentWord = "";
         setContentView(R.layout.activity_hangman);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
         //layout = (LinearLayout)findViewById(R.id.word);
         //ltrs = (GridView)findViewById(R.id.word);
         hangmanParts = new ImageView[numberParts];
@@ -49,7 +48,7 @@ public class GameActivity extends Activity {
         game();
     }
 
-    private void game() {
+    public void game() {
         String word = words[(int) (Math.random() * words.length)];
         while (word.equals(currentWord)) {
             word = words[(int) (Math.random() * words.length)];
@@ -59,7 +58,7 @@ public class GameActivity extends Activity {
         layout.removeAllViews();
         for (int i = 0; i < currentWord.length(); i++) {
             textShown[i] = new TextView(this);
-            textShown[i].setText("" + currentWord.charAt(i));
+            textShown[i].setText(currentWord.charAt(i));
             layout.addView(textShown[i]);
         }
         numberCharacters = currentWord.length();
@@ -70,7 +69,7 @@ public class GameActivity extends Activity {
         }
     }
 
-    public void guess(View input) {
+    public void guessed(View input) {
         String character = ((TextView) input).getText().toString();
         char letterAt = character.charAt(0);
         boolean correctlyGuessed = false;
